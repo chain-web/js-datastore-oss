@@ -1,0 +1,41 @@
+{
+  "name": "datastore-oss",
+  "version": "0.0.1",
+  "description": "IPFS datastore implementation backed by aliyun OSS",
+  "main": "dist/src/index.js",
+  "keywords": [
+    "interface",
+    "key-value",
+    "ipfs",
+    "datastore",
+    "oss"
+  ],
+  "scripts": {
+    "clean": "rimraf dist",
+    "build": "aegir ts"
+  },
+  "files": [
+    "*",
+    "!**/*.tsbuildinfo"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sccgithub/js-datastore-oss.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/ali-oss": "^6.0.11",
+    "aegir": "^35.1.0",
+    "ali-oss": "^6.16.0",
+    "ipfs-repo": "^13.0.4",
+    "rimraf": "^3.0.2",
+    "typescript": "^4.4.3"
+  },
+  "dependencies": {
+    "datastore-core": "^6.0.7",
+    "it-all": "^1.0.5",
+    "it-to-buffer": "^2.0.1",
+    "uint8arrays": "^3.0.0"
+  }
+}
