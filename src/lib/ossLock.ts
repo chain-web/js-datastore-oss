@@ -65,8 +65,11 @@ export class OssLock implements RepoLock {
         }
       },
     };
-
+    let cleaning = false;
     const cleanup = async (err: Error) => {
+      if (cleaning) {
+        return;
+      }
       if (err instanceof Error) {
         console.log("\nAn Uncaught Exception Occurred:\n", err);
       } else if (err) {
@@ -76,10 +79,12 @@ export class OssLock implements RepoLock {
       console.log("\nAttempting to cleanup gracefully...");
 
       try {
+        cleaning = true;
         await closer.close();
       } catch (e: any) {
         console.log("Caught error cleaning up: %s", e.message);
       }
+      cleaning = false;
       console.log("Cleanup complete, exiting.");
       process.exit();
     };
@@ -87,6 +92,8 @@ export class OssLock implements RepoLock {
     // listen for graceful termination
     if (process && process.on) {
       // in NodeJs
+      console.log("datastore-oss-lock listening for exit gc");
+      process.on("exit", cleanup);
       process.on("SIGTERM", cleanup);
       process.on("SIGINT", cleanup);
       process.on("SIGHUP", cleanup);

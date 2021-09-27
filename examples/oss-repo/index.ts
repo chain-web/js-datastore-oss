@@ -1,7 +1,6 @@
 import IPFS from "ipfs-core";
 import toBuffer from "it-to-buffer";
-import { createOssRepo } from "./create-oss-repo";
-import { OssLock } from "../../src/lib/ossLock";
+import { createOssRepo, OssLock } from "datastore-oss";
 import OSS from "ali-oss";
 import { randomBytes } from "crypto";
 

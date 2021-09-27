@@ -1,9 +1,12 @@
 {
   "extends": "aegir/src/config/tsconfig.aegir.json",
   "compilerOptions": {
+    "module": "CommonJS",
+    "target": "ESNext",
     "outDir": "./dist",
     "baseUrl": "./src",
-    "emitDeclarationOnly": false
+    "emitDeclarationOnly": false,
+    "allowSyntheticDefaultImports": true
   },
   "include": ["src", "test"],
   "exclude": ["node_modules"]

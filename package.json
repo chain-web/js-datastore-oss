@@ -1,8 +1,8 @@
 {
   "name": "datastore-oss",
-  "version": "0.0.3",
+  "version": "0.0.6",
   "description": "IPFS datastore implementation backed by aliyun OSS",
-  "main": "dist/src/index.js",
+  "main": "dist/src/index",
   "keywords": [
     "interface",
     "key-value",
@@ -31,13 +31,16 @@
   "devDependencies": {
     "@types/ali-oss": "^6.0.11",
     "aegir": "^35.1.0",
-    "ali-oss": "^6.16.0",
     "ipfs-repo": "^13.0.4",
     "rimraf": "^3.0.2",
     "typescript": "^4.4.3"
   },
   "dependencies": {
+    "@ipld/dag-cbor": "^6.0.10",
+    "ali-oss": "^6.16.0",
+    "blockstore-datastore-adapter": "^2.0.2",
     "datastore-core": "^6.0.7",
+    "ipfs-core-utils": "^0.10.5",
     "it-all": "^1.0.5",
     "it-to-buffer": "^2.0.1",
     "uint8arrays": "^3.0.0"

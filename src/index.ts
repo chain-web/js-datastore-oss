@@ -13,6 +13,8 @@ import { fromString as unint8arrayFromString } from "uint8arrays";
 import toBuffer from "it-to-buffer";
 import type { OssDatastoreOptionsI } from "./interface";
 import OSS from "ali-oss";
+export { OssLock } from "./lib/ossLock";
+export { createOssRepo } from "./lib/create-oss-repo";
 
 /**
  * A datastore backed by the file system, save to aliyun oss.
@@ -88,7 +90,7 @@ export class OssDatastore extends BaseDatastore {
           dataRedundancyType: "LRS",
           timeout: 60000,
         });
-        this.ossClient.useBucket(bucket)
+        this.ossClient.useBucket(bucket);
       }
       throw Errors.dbWriteFailedError(err);
     }
