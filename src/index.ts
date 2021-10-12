@@ -67,6 +67,7 @@ export class OssDatastore extends BaseDatastore {
    */
   _getFullKey(key: Key) {
     // Avoid absolute paths with oss
+    this.opts.hasLog && console.log(key.toString());
     return [this.path, key.toString()].join("/").replace(/\/\/+/g, "/");
   }
 
@@ -124,7 +125,7 @@ export class OssDatastore extends BaseDatastore {
 
       return await toBuffer(data.content);
     } catch (err: any) {
-      if (err.code === "NoSuchKey") {
+      if (err.code === "NoSuchKey" || err.code === "NoSuchKeyError") {
         throw Errors.notFoundError(err);
       }
       throw err;
@@ -220,6 +221,8 @@ export class OssDatastore extends BaseDatastore {
         yield* this._listKeys(params);
       }
     } catch (err: any) {
+      console.log("err------.code");
+      console.log(err.code);
       console.log(err);
       throw new Error(err.code);
     }

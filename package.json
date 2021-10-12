@@ -1,6 +1,6 @@
 {
   "name": "datastore-oss",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "IPFS datastore implementation backed by aliyun OSS",
   "main": "dist/src/index",
   "keywords": [
